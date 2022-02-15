@@ -1,0 +1,17 @@
+<div class = "container">
+  <h2><%= @task.title %></h2>
+  <p><%= @task.details %></p>
+  <p><%= @task.completed %></p>
+
+  <div><%= link_to 'edit', edit_task_path(@task) %></div>
+
+  <div>
+    <%= link_to task_path(@task),
+                    method: :destroy,
+                    data: { confirm: "Are you sure?" } do %>
+            <i class="fa-solid fa-trash-can"></i>
+    <% end %>
+  </div>
+  <div><%= link_to "All Tasks", tasks_path(@task)%></div>
+
+</div>

@@ -1,0 +1,23 @@
+<div class="container">
+  <h1>TASKS</h1>
+  <ul>
+  <% @tasks.each do |task| %>
+  <li><%= link_to task.title, task_path(task)%>
+      <%= link_to task_path(task),
+                    method: :destroy,
+                    data: { confirm: "Are you sure?" } do %>
+            <i class="fa-solid fa-trash-can"></i>
+    <% end %>
+      <% if task.completed%>
+      <i class="fa-solid fa-square-check"></i>
+      <% else %>
+      <i class="fa-solid fa-square"></i>
+      <% end %>
+  </li>
+  <% end %>
+  </ul>
+
+ <%= link_to tasks_new_path do %>
+  <div class="add_button"><h2>Add a new task</h2></div>
+ <% end %>
+</div>
